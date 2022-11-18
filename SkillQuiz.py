@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# tool data
+# skill data
 skill = {"mining": 0, "woodcutting": 0, "crafting": 0, "smithing": 0, "fishing": 0, "firemaking": 0}
 
 # questions/answers
@@ -70,7 +70,7 @@ questions = {
             "6. Firemaking."]
         }
 
-# method to extract questions from dictionary
+# check user input and convert to int
 def inputCheck():
     user_input = input("Your choice [1 - 6]\n>")
     
@@ -84,7 +84,7 @@ def inputCheck():
 
     return int(user_input)
 
-# convert and add information from question to tools
+# convert and add information from question to skill
 def collectInformation(selection):
     if selection == 1:
         skill["mining"] += 1
@@ -96,10 +96,10 @@ def collectInformation(selection):
         skill["smithing"] += 1
     elif selection == 5:
         skill["fishing"] += 1
-    else:
+    elif selection == 6:
         skill["firemaking"] +=1
 
-# Loop through questions
+# Loop through questions and display choices
 def displayAnswers(question):
     for answer in question:
         print("\t"+ answer)
@@ -109,7 +109,7 @@ def findSkill():
     answer = max(skill, key=skill.get)
     print("Your Skill is: " + answer.capitalize())
 
-# method for finding what skill
+# main method to iterate through questions and call methods to deterime skill
 def main():
     print("What RuneScape Skill are you?")
 
